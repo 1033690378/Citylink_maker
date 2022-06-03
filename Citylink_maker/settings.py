@@ -33,7 +33,7 @@ DEBUG = True  # True是测试阶段，logo不会显示，要改为False上线阶
 # DEBUG = False  # True是测试阶段，logo不会显示，要改为False上线阶段logo才能显示
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['1.14.136.68', '172.16.0.16', 'www.legendweb.top', 'localhost', '0.0.0.0:8000', '127.0.0.1', ]
+ALLOWED_HOSTS = ['云服务器外网ip', '云服务器内网ip', '域名', 'localhost', '0.0.0.0:8000', '127.0.0.1', ]
 
 # Application definition
 
@@ -98,7 +98,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
         # 'HOST': '127.0.0.1',  # 主机号
-        'HOST': '1.14.136.68',  # 主机号
+        'HOST': '云服务器外网ip',  # 主机号
         'PORT': 3306,  # 端口号
         # 'USER': 'root',  # 数据库用户名
         'USER': 'citylink',  # 数据库用户名
@@ -232,10 +232,10 @@ LOGGING = {
 CORS_ORIGIN_WHITELIST = (
     'http://127.0.0.1',  # 本地的地址
     'http://localhost',  # 本地的地址
-    'http://1.14.136.68',  # 云服务器的公网地址
+    'http://云服务器外网ip',  # 云服务器的公网地址
     # 'http://192.168.80.136',      # 我虚拟机的地址
     # 'http://www.abc.com',         # 前端的域名
-    'http://www.legendweb.top',  # 后端的域名
+    'http://域名',  # 后端的域名
 )
 
 CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
@@ -268,7 +268,7 @@ AUTHENTICATION_BACKENDS = {
 
 # 设置admin中的图片logo位置
 SIMPLEUI_LOGO = 'http://127.0.0.1:8000/static/logo/logo1.png'
-# SIMPLEUI_LOGO = 'http://1.14.136.68:8000/static/logo/logo1.png'
+# SIMPLEUI_LOGO = 'http://云服务器外网ip:8000/static/logo/logo1.png'
 SIMPLEUI_HOME_INFO = False  # 关闭包自带的广告
 
 # 富文本编辑器的配置
@@ -284,13 +284,13 @@ CKEDITOR_CONFIGS = {
 CKEDITOR_UPLOAD_PATH = ''
 
 # qq的配置参数，QQ互联通过后的应用的APP ID和APP Key
-QQ_CLIENT_ID = '102000664'  # 应用的APP ID
-QQ_CLIENT_SECRET = 'CHBrIURPCl5D7lAL'  # 应用的APP Key
-QQ_REDIRECT_URI = 'http://www.legendweb.top/qq/qqLoginCallback'
+QQ_CLIENT_ID = 'xxxxxxxxx'  # 应用的APP ID
+QQ_CLIENT_SECRET = 'xxxxxxxxxxxxxx'  # 应用的APP Key
+QQ_REDIRECT_URI = '自己在QQ官方定义的返回url'
 
 # 支付宝支付配置，支付宝开放平台-沙箱应用配置
 # 应用ID
-ALIPAY_APPID = '2021000116679778'
+ALIPAY_APPID = 'xxxxxxxxxxxxxxx'
 '''
 可以去虚拟机获取，打开openssl
 输入（获取私钥）：genrsa -out app_private_key.pem 2048
@@ -305,8 +305,8 @@ alipay_public_key_string = open(os.path.join(BASE_DIR, 'apps/shopcart/keys/alipa
 ALIPAY_URL = 'https://openapi.alipaydev.com/gateway.do'
 # 支付完成后返回的路由，自定义回首页
 # ALIPAY_RETURN_URL = 'http://127.0.0.1'
-# ALIPAY_RETURN_URL = 'http://1.14.136.68'
-ALIPAY_RETURN_URL = 'http://www.legendweb.top'
+# ALIPAY_RETURN_URL = 'http://云服务器外网ip'
+ALIPAY_RETURN_URL = 'http://域名'
 
 # 定时任务的配置
 """
